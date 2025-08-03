@@ -1,0 +1,100 @@
+<script>
+  let str = "sachin"; //primitive - immutable
+
+  str[0] = "t";
+  str[1] = "b";
+  console.log(str);
+
+  let arr = [10, 20, 30, 40];
+
+  arr[0] = 19;
+  arr[3] = 33;
+
+  console.log(arr);
+
+  //javascript - programming language, follows ECMAscript standars
+
+  //ECMAscript - set of standards , followed by javascript
+
+  // var, let, const
+
+  var a = 10;
+  let b = 20;
+  const c = 30;
+
+  console.log(a, b, c);
+
+  a = 15;
+  b = 25;
+  c = 35; // uncaught TypeError
+
+  console.log(a, b, c);
+
+  const arr = [10, 20];
+  arr.push(30); // yes
+
+  // here reference is not changing thats why we can change the const as well here.
+
+  var a = 10;
+  var a = 20; // this is possible. var can be redeclared but not let and const.
+
+  //we cannot have same variable redeclared with let  in the same scope , out of scope is fine.
+
+  // we cannot have
+
+  function test() {
+    if (true) {
+      var a = 10;
+      console.log("block");
+    }
+  }
+
+  var a = 10;
+  console.log(a);
+
+  var a = 20;
+  console.log(a);
+
+  // let a = 20;
+  // console.log(a); // Identifier 'a' has already been declared
+
+  let x = 10;
+  console.log("Global", x);
+  function test() {
+    let x = 100;
+    console.log("function", x);
+    if (true) {
+      let x = 1000;
+      console.log("block", x);
+    }
+  }
+  test();
+
+  function test() {
+    if (true) {
+      var a = 10;
+      console.log("block ", a); // 10
+    }
+    console.log("function ", a); // 10
+  }
+  test();
+
+  function test2() {
+    if (true) {
+      let a = 10;
+      console.log("block ", a); // 10
+    }
+    console.log("function ", a); // error
+  }
+  test2();
+
+  //   console.log(a); // undefined
+  //     var a = 10;
+
+  //     // console.log(b); // Cannot access 'b' before initialization
+  //     let b = 20;
+  //     console.log(b); // yes
+
+  //     const c = 30;
+  //     console.log(c);
+</script>

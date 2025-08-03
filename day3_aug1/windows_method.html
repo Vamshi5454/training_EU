@@ -3,11 +3,16 @@
 <script>
   let x = prompt(`enter your first numeber`);
 
-  let y = prompt(`enter your second number`);
-  if (y == null) {
-    y = 0;
+  if (x % 2 == 0) {
+    alert("entered number is even");
+  } else {
+    alert("enterd number is odd");
   }
-  console.log(y);
+  // let y = prompt(`enter your second number`);
+  // if (y == null) {
+  //   y = 0;
+  // }
+  // console.log(y);
 
-  alert(`the addition of 2 numebrs is ${parseInt(x) + parseInt(y)} `);
+  // alert(`the addition of 2 numebrs is ${parseInt(x) + parseInt(y)} `);
 </script>
