@@ -1,0 +1,18 @@
+<script>
+  var a = 10;
+  let name = "sanjay";
+  function f1() {
+    var b = 20;
+    function f2() {
+      var c = 30;
+      console.log(a, b, c);
+    }
+    f2();
+    console.dir(f2);
+  }
+  f1();
+  console.dir(f1);
+
+  // closure scope is only for inner functions and not for outer function
+  // closure is seen only for those inner functions which access outer functions data
+</script>

@@ -1,0 +1,59 @@
+Functions 
+=========
+-function is a block of code/statements designed to perform a particular task.
+-function is executed only when that gets invoked/called.
+
+Pre-Defined Functions : console.log() , Math.max()
+User-defined Functions : we write the logic, and we use them
+
+
+-Funtion types:
+   a. function declaration (named function)
+   b. function expression(anonymous)
+   c. self invoked ( IIFE- Immediately Invoked Function Expression)
+   d. arrow function (ES - 6)(2015)
+
+
+Function Declaration vs Function Expression
+===========================================
+-function declarations are named functions, function exprerssions are anonymous
+-function declarations are hoisted, function expressions are not
+
+
+
+Regular Function : own 'this' binding  , this = how/where the function is called
+Arrow Function :  doesn't have its own 'this' ,  lexical scope, this = where the function is written
+
+
+Usecases where arrow function shouldn't be used
+================================================
+1. arrow functions shouldn't be used as object methods
+2. arrow functions shouldn't be used if value of 'this' has to be dynamic
+
+
+
+Arrow Function
+==============
+-Concise syntax
+-implicit return
+-better for callbacks
+-lexical 'this' binding
+-this is static
+
+HigherOrder Function : A function that takes another function as argument
+CallBack Function : A function that's passed as argument to another function
+
+
+
+function closure
+================
+-A closure is the combination of a function bundled together (enclosed) with references to its surrounding state (the lexical environment). In other words, a closure gives a function access to its outer scope. 
+
+-A closure is a concept where an inner function has access to its outer function's variables even after the outer function's execution is Completed/Closed.
+
+-When an inner function accesses any data from the outer function, a 'closure' scope gets attached to the inner function.
+ hence inner function can access outer function data.
+
+-When the outer function execution completes, you’d expect all its variables to be no longer accessible. However, if the inner function uses variables from the outer function, those variables remain accessible.
+
+-The inner function retains access to the outer function’s scope, because the inner function ‘remembers’ the environment in which it was created.

@@ -1,0 +1,25 @@
+<script>
+  // Function Declaration
+  add(10, 20);
+  function add(a, b) {
+    console.log("Addition is", a + b);
+  }
+  add(10, 20);
+
+  // Function Expression
+  var sub = function (a, b) {
+    console.log(a - b);
+  };
+  sub(20, 10);
+
+  // Self Invoked , can be invoked only once
+  (function (a, b) {
+    console.log(a * b);
+  })(10, 20);
+
+  // Arrow Function
+  var div = (a, b) => {
+    console.log(a / b);
+  };
+  div(20, 10);
+</script>

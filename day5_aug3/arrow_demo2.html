@@ -1,0 +1,30 @@
+<script>
+  class Student {
+    firstName = "Virat";
+    lastName = "Kohli";
+
+    fullName1() {
+      // Regular-how/where the function is called
+      console.log("I am fullname-1");
+      console.log(this.firstName, this.lastName, this); // this = std/window
+    }
+    fullName2 = () => {
+      // Arrow - where the function is written
+      console.log(this.firstName, this.lastName, this); // this = student
+    };
+  }
+  let std1 = new Student();
+  // std1.fullName1();
+  // std1.fullName2();
+  let a = std1.fullName2;
+  a();
+
+  let b = a;
+  b();
+
+  let c = b;
+  c();
+
+  let x = std1.fullName1;
+  x();
+</script>
