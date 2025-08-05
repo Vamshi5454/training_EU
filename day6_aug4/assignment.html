@@ -1,0 +1,65 @@
+<script>
+  let s = "sachin";
+
+  console.log(s.split("").reverse().join(""));
+
+  s1 = "this is javascript class";
+
+  console.log(s1.split(" ").reverse().join(" "));
+
+  //   . WAP to print the first non-repeated character in a string
+  //    input:- 'entertainment'
+  //    output:- r
+  s2 = "entertainment";
+  for (char of s2) {
+    if (s2.indexOf(char) == s2.lastIndexOf(char)) {
+      console.log(char);
+      break;
+    }
+  }
+
+  //4. WAP to print a string in title case
+  // 	input:- 'this is javascript class'
+  //    output:- 'This Is Javascript Class'
+
+  function toTtileCase(str) {
+    let result = "";
+    let words = str.split(" ");
+
+    for (let i = 0; i < words.length; i++) {
+      let word = words[i];
+
+      let titleWord = word[0].toUpperCase() + word.slice(1).toLowerCase();
+      result += titleWord + " ";
+    }
+    return result;
+  }
+
+  let input = "this is javascript class";
+  let output = toTtileCase(input);
+  console.log("ouput for 4th question" + output);
+
+  // WAP to find longest word in a sentence
+  // 	input:- 'this is javascript class'
+  //     output:- javascript
+
+  function longest(str) {
+    let maxi = 0;
+    let result5 = "";
+    let words = str.split(" ");
+
+    for (let i in words) {
+      let temp = words[i].length;
+      if (temp > maxi) {
+        maxi = temp;
+        result5 = words[i];
+      }
+    }
+
+    return result5;
+  }
+
+  let s5 = "this is javascript class";
+  let output5 = longest(s5);
+  console.log("output for question 5 is  " + output5);
+</script>

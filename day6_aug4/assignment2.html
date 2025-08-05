@@ -1,0 +1,89 @@
+<script>
+  //     6. WAP to print Account number
+  //    input:- '12345678987'
+  //    output:- '12*******87'
+
+  function account(str) {
+    let l = str.length;
+    let result = str.slice(0, 2) + "*".repeat(l - 4) + str.slice(l - 2);
+    return result;
+  }
+
+  let input6 = "12345678987";
+  let output6 = account(input6);
+  console.log("output for question 6 is " + output6);
+
+  //  WAP to print Credit-card number
+  //    input:- '1111222233334444'
+  //    output:- '1111-2222-3333-4444'
+
+  function creditcard(str) {
+    let l = str.length;
+    result = "";
+
+    for (let i = 0; i < l; i++) {
+      result += str.charAt(i);
+      if ((i + 1) % 4 === 0 && i !== str.length - 1) {
+        result += "-";
+      }
+    }
+
+    return result;
+  }
+  let input7 = "1111222233334444";
+
+  let output = creditcard(input7);
+
+  console.log(output);
+
+  // WAP to check if 2 strings are anagram or not
+  // 	'listen' - 'silent'    anagram(every char of str1 should be there in str2)
+
+  function anagram(str1, str2) {
+    if (str1.length != str2.length) {
+      return false;
+    }
+
+    let s1 = str1.split("").sort().join("");
+    let s2 = str2.split("").sort().join("");
+
+    return s1 == s2;
+  }
+  let input8Str1 = "listen";
+  let input8Str2 = "silent";
+  let output8 = anagram(input8Str1, input8Str2);
+  console.log("output for question 8 is " + output8);
+
+  //    WAP to remove special character from a string
+  //    input:- 'hello@#hi&'
+  //    output:- 'hellohi'
+
+  function removeSpecailChar(str) {
+    return str.replace(/[^a-zA-Z0-9]/g, "");
+  }
+  let input9 = "hello@#hi&";
+  let output9 = removeSpecailChar(input9);
+  console.log(output9);
+
+  ///////////
+
+  function moveSpecialCharsToEnd(input) {
+    let normalChars = "";
+    let specialChars = "";
+
+    for (let ch of input) {
+      if (/[a-zA-Z0-9]/.test(ch)) {
+        normalChars += ch;
+      } else {
+        specialChars += ch;
+      }
+    }
+
+    return normalChars + specialChars;
+  }
+
+  // Example usage:
+  let input10 = "hello@#hi&";
+  let output10 = moveSpecialCharsToEnd(input);
+  console.log("Output:", output10);
+</script>
