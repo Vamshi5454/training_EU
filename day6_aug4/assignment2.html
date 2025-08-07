@@ -67,7 +67,11 @@
 
   ///////////
 
-  function moveSpecialCharsToEnd(input) {
+  // 10.⁠ ⁠WAP to move all the special characters to the end of the string
+  // 	input:- 'hello@#hi&'
+  //    output:- 'hellohi@#&'
+
+  function moveToEnd(input) {
     let normalChars = "";
     let specialChars = "";
 
@@ -82,8 +86,7 @@
     return normalChars + specialChars;
   }
 
-  // Example usage:
   let input10 = "hello@#hi&";
-  let output10 = moveSpecialCharsToEnd(input);
+  let output10 = moveToEnd(input);
   console.log("Output:", output10);
 </script>
