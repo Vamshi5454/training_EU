@@ -1,0 +1,239 @@
+<!-- 1.⁠ ⁠Print the occurence of each character in a string
+   input: 'entertainment'
+   output: { e:3 , n:2 , t: 3 ....}
+
+2.⁠ ⁠Print the character which is repeated max no of times
+   input: 'hello world'
+   output : 'L'
+
+3.⁠ ⁠Swap The case for Each Character in a string 
+   input: 'Hello World'
+   output: 'hELLO wORLD'
+
+4.⁠ ⁠Print the Abbreviation for a string
+   input: 'Rabindra Nath Tagore'
+   output: 'R. N. tagore'
+
+5.⁠ ⁠Shift the characters by the next character
+   input:  'abcxyz'
+   output: 'bcdyza'
+
+6.⁠ ⁠Ask user to enter a sequence of parantheses and validate 
+   input: '([{ }])'
+   output : true
+
+7.⁠ ⁠Ask user to enter a 3 letter word, print all the permutations using those 3 letters.
+    input: 'ABC'
+    output: ABC , ACB , BCA, BAC ...
+
+8.⁠ ⁠Ask user to enter a number and convert that to Roman value
+   input:   9    12
+   output : IX   XII
+
+9.⁠ ⁠Ask user to enter a roman string and convert that to integer value
+   input:   IX    XII
+   output : 9     12 -->
+
+<script>
+  function charOccurrences(str) {
+    let chars = str.toLowerCase();
+    let uniqueChars = "";
+
+    for (let i = 0; i < chars.length; i++) {
+      let currentChar = chars[i];
+      if (currentChar === " " || uniqueChars.includes(currentChar)) continue;
+
+      let count = 0;
+      for (let j = 0; j < chars.length; j++) {
+        if (chars[j] === currentChar) {
+          count++;
+        }
+      }
+
+      uniqueChars += currentChar;
+      console.log(`${currentChar}: ${count}`);
+    }
+  }
+
+  // Example
+  charOccurrences("entertainment");
+
+  // 1. Print the occurrence of each character in a string
+  // input: 'entertainment'
+  // output: { e:3 , n:2 , t: 3 ....}
+  function charOccurrence(str) {
+    return str.split("").reduce((acc, char) => {
+      acc[char] = (acc[char] || 0) + 1;
+      return acc;
+    }, {});
+  }
+  console.log("1. Character occurrence:");
+  console.log(charOccurrence("entertainment"));
+
+  // 2. Print the character which is repeated max no of times
+  // input: 'hello world'
+  // output: 'l'
+  function maxRepeatedChar(str) {
+    const charCount = str.split("").reduce((acc, char) => {
+      acc[char] = (acc[char] || 0) + 1;
+      return acc;
+    }, {});
+
+    return Object.keys(charCount).reduce((maxChar, char) =>
+      charCount[char] > charCount[maxChar] ? char : maxChar
+    );
+  }
+  console.log("\n2. Most repeated character:");
+  console.log(maxRepeatedChar("hello world"));
+
+  // 3. Swap the case for each character in a string
+  // input: 'Hello World'
+  // output: 'hELLO wORLD'
+  function swapCase(str) {
+    return str
+      .split("")
+      .map((char) =>
+        char === char.toLowerCase() ? char.toUpperCase() : char.toLowerCase()
+      )
+      .join("");
+  }
+  console.log("\n3. Swap case:");
+  console.log(swapCase("Hello World"));
+
+  // 4. Print the abbreviation for a string
+  // input: 'Rabindra Nath Tagore'
+  // output: 'R. N. T.'
+  function getAbbreviation(str) {
+    return str
+      .split(" ")
+      .map((word) => word.charAt(0).toUpperCase() + ".")
+      .join(" ");
+  }
+  console.log("\n4. Abbreviation:");
+  console.log(getAbbreviation("Rabindra Nath Tagore"));
+
+  // 5. Shift the characters by the next character
+  // input: 'abcxyz'
+  // output: 'bcdyza'
+  function shiftCharacters(str) {
+    return str
+      .split("")
+      .map((char) => {
+        if (char === "z") return "a";
+        if (char === "Z") return "A";
+        return String.fromCharCode(char.charCodeAt(0) + 1);
+      })
+      .join("");
+  }
+  console.log("\n5. Shift characters:");
+  console.log(shiftCharacters("abcxyz"));
+
+  // 6. Validate parentheses sequence
+  // input: '([{ }])'
+  // output: true
+  function validateParentheses(str) {
+    const stack = [];
+    const pairs = { "(": ")", "[": "]", "{": "}" };
+
+    return (
+      str.split("").every((char) => {
+        if (pairs[char]) {
+          stack.push(char);
+          return true;
+        } else if (Object.values(pairs).includes(char)) {
+          return stack.length > 0 && pairs[stack.pop()] === char;
+        }
+        return true; // ignore other characters
+      }) && stack.length === 0
+    );
+  }
+  console.log("\n6. Validate parentheses:");
+  console.log(validateParentheses("([{ }])"));
+  console.log(validateParentheses("([)]"));
+
+  // 7. Generate all permutations of a 3-letter word
+  // input: 'ABC'
+  // output: ['ABC', 'ACB', 'BAC', 'BCA', 'CAB', 'CBA']
+  function getPermutations(str) {
+    if (str.length <= 1) return [str];
+
+    const result = [];
+    str.split("").forEach((char, i) => {
+      const remaining = str.slice(0, i) + str.slice(i + 1);
+      getPermutations(remaining).forEach((perm) => {
+        result.push(char + perm);
+      });
+    });
+    return result;
+  }
+  console.log("\n7. All permutations of 3-letter word:");
+  console.log(getPermutations("ABC"));
+
+  // 8. Convert number to Roman numeral
+  // input: 9, 12
+  // output: 'IX', 'XII'
+  function numberToRoman(num) {
+    const values = [1000, 900, 500, 400, 100, 90, 50, 40, 10, 9, 5, 4, 1];
+    const symbols = [
+      "M",
+      "CM",
+      "D",
+      "CD",
+      "C",
+      "XC",
+      "L",
+      "XL",
+      "X",
+      "IX",
+      "V",
+      "IV",
+      "I",
+    ];
+
+    return values.reduce((roman, value, i) => {
+      const count = Math.floor(num / value);
+      num -= count * value;
+      return roman + symbols[i].repeat(count);
+    }, "");
+  }
+  console.log("\n8. Number to Roman:");
+  console.log(numberToRoman(9));
+  console.log(numberToRoman(12));
+  console.log(numberToRoman(1994));
+
+  // 9. Convert Roman numeral to integer
+  // input: 'IX', 'XII'
+  // output: 9, 12
+  function romanToNumber(roman) {
+    const values = { I: 1, V: 5, X: 10, L: 50, C: 100, D: 500, M: 1000 };
+
+    return roman.split("").reduce((total, char, i) => {
+      const current = values[char];
+      const next = values[roman[i + 1]];
+      return next && current < next ? total - current : total + current;
+    }, 0);
+  }
+  console.log("\n9. Roman to Number:");
+  console.log(romanToNumber("IX"));
+  console.log(romanToNumber("XII"));
+  console.log(romanToNumber("MCMXCIV"));
+
+  // Interactive examples (you can uncomment these to test with user input)
+  /*
+// For problem 6 - Interactive parentheses validation
+const userParens = prompt("Enter a sequence of parentheses:");
+console.log("Valid:", validateParentheses(userParens));
+
+// For problem 7 - Interactive permutations
+const userWord = prompt("Enter a 3-letter word:");
+console.log("Permutations:", getPermutations(userWord));
+
+// For problem 8 - Interactive number to roman
+const userNumber = parseInt(prompt("Enter a number to convert to Roman:"));
+console.log("Roman:", numberToRoman(userNumber));
+
+// For problem 9 - Interactive roman to number
+const userRoman = prompt("Enter a Roman numeral:");
+console.log("Number:", romanToNumber(userRoman));
+*/
+</script>

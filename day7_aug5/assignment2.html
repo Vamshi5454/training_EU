@@ -1,0 +1,134 @@
+<script>
+  //1. Print the occurence of each character in a string
+  //input: 'entertainment'
+  //output: { e:3 , n:2 , t: 3 ....}
+
+  a = "entertainment";
+  b = {};
+  for (i of a) {
+    if (i in b) {
+      b[i] = b[i] + 1;
+    } else {
+      b[i] = 1;
+    }
+  }
+  console.log(a, b);
+
+  // 2. Print the character which is repeated max no of times
+  // input: 'hello world'
+  // output : 'L'
+
+  a = "hello world";
+  b = {};
+  for (i of a) {
+    if (i in b) {
+      b[i] = b[i] + 1;
+    } else {
+      b[i] = 1;
+    }
+  }
+  maxi = 0;
+  for (i of a) {
+    if (b[i] > maxi) {
+      maxi = b[i];
+    }
+  }
+  console.log(b);
+  console.log(Object.keys(b).find((key) => b[key] === maxi));
+
+  // 3. Swap The case for Each Character in a string
+
+  input: "Hello World";
+  output: "hELLO wORLD";
+  a = "Hello World";
+  b = "";
+  for (i of a) {
+    if (i === i.toUpperCase()) {
+      b += i.toLowerCase();
+    } else {
+      b += i.toUpperCase();
+    }
+  }
+  console.log(b);
+
+  // 4. Print the Abbreviation for a string
+  input: "Rabindra Nath Tagore";
+  output: "R. N. tagore";
+  a = "Rabindra Nath Tagore";
+  b = a.split(" ");
+  new_word = "";
+  console.log(b);
+  for (i = 0; i < b.length - 1; i++) {
+    new_word += b[i][0].toUpperCase() + ". ";
+  }
+  console.log(new_word + b[b.length - 1]);
+
+  // 5. Shift the characters by the next character
+  input: "abcxyz";
+  output: "bcdyza";
+
+  a = "xyZ";
+  b = "";
+  for (let i of a) {
+    if (i === "z") {
+      b += "a";
+    } else if (i === "Z") {
+      b += "A";
+    } else {
+      b += String.fromCharCode(i.charCodeAt(0) + 1);
+    }
+  }
+  console.log(b);
+
+  // 6. Ask user to enter a sequence of parantheses and validate
+  // input: '([{ }])'
+  // output : true
+  // a = '([{}])';
+  // b = true;
+  // for (let i = 0; i < a.length / 2; i++) {
+  //     b = a[i];
+  //     c = a[a.length - 1 - i];
+  //     if ((b === '(' && c !== ')') ||(b === '[' && c !== ']') ||(b === '{' && c !== '}')) {
+  //         b = false;
+  //     }
+  // }
+  // console.log(b);
+
+  // 7. Ask user to enter a 3 letter word, print all the permutations using those 3 letters.
+  //     input: 'ABC'
+  //     output: ABC , ACB , BCA, BAC ...
+  // a='ABC';
+  // for (let i = 0; i < 3; i++) {
+  //     for (let j = 0; j < 3; j++) {
+  //         if (j === i) continue;
+  //         for (let k = 0; k < 3; k++) {
+  //             if (k === i || k === j) continue;
+  //             console.log(a[i] + a[j] + a[k]);
+  //         }
+  //     }
+  // }
+  // 8. Ask user to enter a number and convert that to Roman value
+  // input:   9    12
+  // output : IX   XII
+  // function toRoman(num) {
+  // const map = [
+  //     [1000, 'M'], [900, 'CM'], [500, 'D'], [400, 'CD'],
+  //     [100, 'C'], [90, 'XC'], [50, 'L'], [40, 'XL'],
+  //     [10, 'X'], [9, 'IX'], [5, 'V'], [4, 'IV'], [1, 'I']
+  // ];
+  // let result = '';
+  // for (let [value, symbol] of map) {
+  //     while (num >= value) {
+  //         result += symbol;
+  //         num -= value;
+  //     }
+  // }
+  // return result;
+  // }
+  // console.log(toRoman(19));
+  // console.log(toRoman(12));
+
+  // 9. Ask user to enter a roman string and convert that to integer value
+  // input:   IX    XII
+  // output : 9     12
+</script>

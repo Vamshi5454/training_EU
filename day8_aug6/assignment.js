@@ -106,11 +106,15 @@ const inputArr = [
   "e",
   "a",
   "t",
+  "",
+  "a",
+  "b",
+  "c",
 ];
 
 let res = [];
+x = "";
 for (i of inputArr) {
-  x = "";
   if (i == "") {
     res.push(x);
     x = "";
@@ -118,4 +122,46 @@ for (i of inputArr) {
     x = x + i;
   }
 }
+res.push(x);
 console.log(res);
+
+const res1 = inputArr.reduce(
+  (acc, curr) => {
+    if (curr === "") {
+      acc.push("");
+    } else {
+      acc[acc.length - 1] += curr;
+    }
+    return acc;
+  },
+  [""]
+);
+console.log(res1);
+
+// 7.⁠ ⁠add Dept info for each employee
+employees = [
+  { eId: 101, name: "sanjay", sal: 5000, gender: "male" },
+  { eId: 104, name: "reena", sal: 8000, gender: "female" },
+];
+departments = [
+  { eId: 101, dept: "sales" },
+  { eId: 104, dept: "marketing" },
+];
+
+employees = employees.map((emp) => {
+  const deptInfo = departments.find((d) => d.eId === emp.eId);
+  return { ...emp, dept: deptInfo ? deptInfo.dept : "Unknown" };
+});
+
+employees = employees.map((emp) => {
+  const dept1 = departments.find((d) => d.eId === emp.eId);
+  return { ...emp, dept: dept1 ? dept1.dept : "Unknown" };
+});
+
+console.log(employees);
+
+//  8.⁠ ⁠declare array of employees & groupBy employees-name
+//     sample output: {
+// 		'sanjay' : [{},{}],
+// 		'alok' : [{}]
+// 	}
