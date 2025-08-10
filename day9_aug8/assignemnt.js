@@ -273,7 +273,7 @@ const ans = stocks.reduce(
     return acc;
   },
 
-  [[], []]
+  [[],[]]
 );
 
 console.log(ans);
