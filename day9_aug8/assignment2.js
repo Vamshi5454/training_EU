@@ -57,6 +57,7 @@ const recentCustomers = orders
 
 console.log(recentCustomers);
 
+
 // // 5.⁠ ⁠Create leaderboard from game scores (highest score wins)
 // const games = [
 //   { player: "Alice", score: 40 },

@@ -1,0 +1,29 @@
+ES-6 and Beyond
+================
+-const & let
+-Arrow Functions
+-template literal
+-multiline string
+-for-in loop
+-foo-of loop
+-Object de-structuring 
+-Array de-structuring
+-Default Parameters
+-Rest Parameter ( ... ) used with functions as parameters
+-Spread Operator ( ... ) breaks groupf of data to  individual items
+-Classes
+-Set Objects (Unique items)
+-Map Objects (Key:Value)
+
+-Module
+-Promise
+
+
+
+object vs map
+-------------
+1. object keys must be strings/symbol, where as map keys can be of any type.
+2. You can get the size of a Map easily.  ex: map.size
+   for object size has to be calculated manually. ex: Object.keys(obj).length
+3.The iteration of maps is in insertion order of the elements
+4.Objects are not inherently iterable (Object.keys() is slow), Maps are iterable.

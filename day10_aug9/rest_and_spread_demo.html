@@ -1,0 +1,136 @@
+<script>
+  function add2Nums(a, b) {
+    console.log(a + b);
+  }
+  add2Nums(10, 20);
+
+  function add3Nums(a, b, c) {
+    console.log(a + b + c);
+  }
+  add3Nums(10, 20, 30);
+
+  function sum(...arr) {
+    // ... REST parameter
+    let sum = arr.reduce((sum, ele) => sum + ele);
+    console.log(sum);
+  }
+  sum(10, 20);
+  sum(10, 20, 30);
+  sum(10, 20, 30, 40, 50);
+
+  function restTest(a, b, ...c) {
+    console.log(a, b, c); // 10 20 [30,40,50]
+  }
+  restTest(10, 20, 30, 40, 50);
+
+  // Note : Rest parameter must be last formal parameter
+
+  let carSet = new Set();
+  carSet.add("Tata");
+  carSet.add("Honda");
+  carSet.add("Maruti");
+  carSet.add("Honda");
+  carSet.add("Maruti");
+  carSet.add("Maruti");
+
+  console.log(carSet);
+  console.log(carSet.size); // 3
+
+  //default parameter
+
+  function add(a, b, c) {
+    console.log(a + b + c); // 10 20 undefined
+  }
+  add(10, 20); // NaN
+
+  function sum(a, b, c = 0) {
+    console.log(a + b + c); // 10 20 0
+  }
+  sum(10, 20); // 30
+  sum(10, 20, 30); // 30
+
+  function greet(userName = "Guest") {
+    console.log(`Hello ${userName}`);
+  }
+  greet();
+  greet("Sanjay");
+
+  // object destructring
+
+  let user = {
+    id: 1,
+    name: "Leanne Graham",
+    username: "Bret",
+    email: "Sincere@april.biz",
+    address: {
+      street: "Kulas Light",
+      suite: "Apt. 556",
+      city: "Gwenborough",
+      zipcode: "92998-3874",
+      geo: {
+        lat: "-37.3159",
+        lng: "81.1496",
+      },
+    },
+    phone: "1-770-736-8031 x56442",
+    website: "hildegard.org",
+    company: {
+      name: "Romaguera-Crona",
+      catchPhrase: "Multi-layered client-server neural-net",
+      bs: "harness real-time e-markets",
+    },
+  };
+  // es-5
+  let a = user.name;
+  let b = user.phone;
+  let c = user.address.city;
+  let d = user.address.geo.lat;
+  console.log(a, b, c, d);
+
+  // ES_6 object de-structuring
+  let {
+    name: x,
+    phone,
+    email,
+    address: {
+      city,
+      geo: { lat },
+    },
+  } = user;
+  console.log(x, phone, city, lat);
+
+  // es_5
+  let arr = [10, 20, 30, 40, 50];
+  let a1 = arr[0];
+  let b1 = arr[1];
+  let c1 = arr[2];
+  console.log(a, b, c);
+
+  // es-6
+  let [p, q, r] = arr;
+  console.log(p, q, r);
+
+
+  //map-demo
+  let str = 'entertainment';
+
+    // using object
+    let obj = {};
+    for (char of str) {
+        obj[char] = obj[char] ? obj[char] + 1 : 1;
+    }
+    console.log(obj);
+
+    
+
+    // using map
+    let charMap = new Map();
+    for (char of str) {
+        if (charMap.has(char)) {
+            charMap.set(char, charMap.get(char) + 1)
+        } else {
+            charMap.set(char, 1)
+        }
+    }
+    console.log(charMap);
+</script>
